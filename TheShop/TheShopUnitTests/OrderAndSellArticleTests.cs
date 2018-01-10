@@ -53,5 +53,26 @@ namespace TheShopUnitTests
 			//assert
 			Assert.IsNull(thrownException);
 		}
+
+		[TestCase(1, 1, 10)]
+		public void TestTooExpensive(int id, int maxPrice, int buyerId)
+		{
+			//prepare 
+			ShopService service = new ShopService();
+			Exception thrownException = null;
+
+			//act
+			try
+			{
+				service.OrderAndSellArticle(id, maxPrice, buyerId);
+			}
+			catch (Exception e)
+			{
+				thrownException = e;
+			}
+
+			//assert
+			Assert.IsNull(thrownException);
+		}
 	}
 }
