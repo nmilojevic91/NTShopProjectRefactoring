@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+# Visual Studio Express 15 for Windows Desktop
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheShop", "TheShop\TheShop.csproj", "{72C6A701-A607-4030-8A52-D004440C2AA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheShopUnitTests", "TheShopUnitTests\TheShopUnitTests.csproj", "{8C3BCCE0-2F96-41BE-BBAB-847C986FFE4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{72C6A701-A607-4030-8A52-D004440C2AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72C6A701-A607-4030-8A52-D004440C2AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72C6A701-A607-4030-8A52-D004440C2AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C3BCCE0-2F96-41BE-BBAB-847C986FFE4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C3BCCE0-2F96-41BE-BBAB-847C986FFE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C3BCCE0-2F96-41BE-BBAB-847C986FFE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C3BCCE0-2F96-41BE-BBAB-847C986FFE4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DF60FBA-AF25-4791-84F2-6E27496BE73B}
 	EndGlobalSection
 EndGlobal
