@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using TheShop;
+using TheShop.Model;
 
 namespace TheShopUnitTests
 {
@@ -79,6 +80,30 @@ namespace TheShopUnitTests
 			//assert
 			Assert.IsNotNull(thrownException);
 			Assert.AreEqual(message, "Could not order article");
+		}
+
+		[TestCase(1, 1000, 10)]
+		public void TestSuccesfullySoldArticle(int id, int maxPrice, int buyerId)
+		{
+			//prepare 
+			ShopService service = new ShopService();
+			Exception thrownException = null;
+			Article article = null;
+
+			//act
+			try
+			{
+				service.OrderAndSellArticle(id, maxPrice, buyerId);
+				article = service.GetById(id);
+			}
+			catch (Exception e)
+			{
+				thrownException = e;
+			}
+
+			//assert
+			Assert.IsNull(thrownException);
+			Assert.IsNotNull(article);
 		}
 	}
 }
