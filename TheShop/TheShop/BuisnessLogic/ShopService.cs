@@ -25,18 +25,18 @@ namespace TheShop
 			_suppliers.Add(new Supplier3());
 		}
 		#region Interface implementation
-		public void OrderAndSellArticle(int id, int maxExpectedPrice, int buyerId)
+		public bool OrderAndSellArticle(int id, int maxExpectedPrice, int buyerId)
 		{
 			// ordering article
 			Article article = FindArticle(id, maxExpectedPrice, _suppliers.ToArray());
 
 			if (article == null)
 			{
-				throw new Exception("Could not order article");
+				return false;
 			}
 
 			//selling article
-			SellArticle(article,buyerId);
+			return SellArticle(article,buyerId);
 		}
 
 		public Article GetById(int id)
@@ -84,12 +84,12 @@ namespace TheShop
 		/// </summary>
 		/// <param name="article">Article to sell</param>
 		/// <param name="buyerId">Id of the Buyer</param>
-		private void SellArticle(Article article, int buyerId)
+		private bool SellArticle(Article article, int buyerId)
 		{ 
 			if(article == null)
 			{
 				logger.Debug("Article not found. Aborting selling of article");
-				return;
+				return false;
 			}
 			logger.Debug("Trying to sell article with id=" + article.ID);
 
@@ -97,19 +97,7 @@ namespace TheShop
 			article.SoldDate = DateTime.Now;
 			article.BuyerUserId = buyerId;
 
-			try
-			{
-				DatabaseDriver.Save(article);
-				logger.Info("Article with id=" + article.ID + " is sold.");
-			}
-			catch (ArgumentNullException ex)
-			{
-				logger.Error("Could not save article with id=" + article.ID);
-				throw new Exception("Could not save article with id");
-			}
-			catch (Exception)
-			{
-			}
+			return DatabaseDriver.Save(article);
 		}
 		#endregion
 	}

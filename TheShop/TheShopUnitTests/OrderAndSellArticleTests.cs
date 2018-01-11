@@ -17,18 +17,11 @@ namespace TheShopUnitTests
 			//prepare 
 
 			ShopService service = new ShopService();
-			Exception thrownException = null;
 			//act
-			try
-			{
-				service.OrderAndSellArticle(id, maxPrice, buyerId);
-			}
-			catch(Exception e)
-			{
-				thrownException = e;
-			}
+			bool success = service.OrderAndSellArticle(id, maxPrice, buyerId);
+
 			//assert
-			Assert.IsNull(thrownException);
+			Assert.IsTrue(success);
 		}
 
 		[TestCase(2, 100, 10)]
@@ -39,23 +32,12 @@ namespace TheShopUnitTests
 		{
 			//prepare 
 			ShopService service = new ShopService();
-			Exception thrownException = null;
-			string message = "";
 
 			//act
-			try
-			{
-				service.OrderAndSellArticle(id, maxPrice, buyerId);
-			}
-			catch (Exception e)
-			{
-				thrownException = e;
-				message = e.Message;
-			}
-
+			bool success = service.OrderAndSellArticle(id, maxPrice, buyerId);
+			
 			//assert
-			Assert.IsNotNull(thrownException);
-			Assert.AreEqual(message, "Could not order article");
+			Assert.IsFalse(success);
 		}
 
 		[TestCase(1, 1, 10)]
@@ -63,23 +45,13 @@ namespace TheShopUnitTests
 		{
 			//prepare 
 			ShopService service = new ShopService();
-			Exception thrownException = null;
-			string message = "";
 
 			//act
-			try
-			{
-				service.OrderAndSellArticle(id, maxPrice, buyerId);
-			}
-			catch (Exception e)
-			{
-				thrownException = e;
-				message = e.Message;
-			}
+			bool success = service.OrderAndSellArticle(id, maxPrice, buyerId);
+
 
 			//assert
-			Assert.IsNotNull(thrownException);
-			Assert.AreEqual(message, "Could not order article");
+			Assert.IsFalse(success);
 		}
 
 		[TestCase(1, 1000, 10)]
@@ -87,22 +59,14 @@ namespace TheShopUnitTests
 		{
 			//prepare 
 			ShopService service = new ShopService();
-			Exception thrownException = null;
 			Article article = null;
 
 			//act
-			try
-			{
-				service.OrderAndSellArticle(id, maxPrice, buyerId);
-				article = service.GetById(id);
-			}
-			catch (Exception e)
-			{
-				thrownException = e;
-			}
-
+			bool success = service.OrderAndSellArticle(id, maxPrice, buyerId);
+			article = service.GetById(id);
+			
 			//assert
-			Assert.IsNull(thrownException);
+			Assert.IsTrue(success);
 			Assert.IsNotNull(article);
 		}
 	}

@@ -6,41 +6,35 @@ namespace TheShop
 	{
 		private static void Main(string[] args)
 		{
-			var shopService = new ShopService();
-
 			try
 			{
+				var shopService = new ShopService();
 				//order and sell
 				shopService.OrderAndSellArticle(1, 20, 10);
+
+				tryBuyArticle(shopService, 1);
+				tryBuyArticle(shopService, 12);
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex);
 			}
-
-			try
-			{
-				//print article on console
-				var article = shopService.GetById(1);
-				Console.WriteLine("Found article with ID: " + article.ID);
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine("Article not found: " + ex);
-			}
-
-			try
-			{
-				//print article on console				
-				var article = shopService.GetById(12);
-				Console.WriteLine("Found article with ID: " + article.ID);
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine("Article not found: " + ex);
-			}
-
+			
 			Console.ReadKey();
+		}
+
+		private static void tryBuyArticle(ShopService shopService, int id)
+		{
+			//print article on console				
+			var article = shopService.GetById(id);
+			if (article != null)
+			{
+				Console.WriteLine("Found article with ID: " + id);
+			}
+			else
+			{
+				Console.WriteLine("Could not save article with ID: " + id);
+			}
 		}
 	}
 }
