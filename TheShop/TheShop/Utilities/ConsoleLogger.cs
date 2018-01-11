@@ -1,7 +1,9 @@
 ﻿using System;
+using TheShop.Utilities.Interfaces;
+
 namespace TheShop.Utilities
 {
-	class Logger
+	class ConsoleLogger: ILogger
 	{
 		public void Info(string message)
 		{

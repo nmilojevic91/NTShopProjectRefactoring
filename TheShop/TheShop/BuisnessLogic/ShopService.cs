@@ -1,36 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
+using TheShop.BuisnessLogic.Interfaces;
 using TheShop.DataAccess;
 using TheShop.Model;
 using TheShop.Utilities;
+using TheShop.Utilities.Interfaces;
 
 namespace TheShop
 {
-	public class ShopService
+	public class ShopService: IShopService
 	{
 		private DatabaseDriver DatabaseDriver;
-		private Logger logger;
-
-		private Supplier1 Supplier1;
-		private Supplier2 Supplier2;
-		private Supplier3 Supplier3;
+		private ILogger logger;
 		
+		private List<ISupplier> _suppliers;
+
 		public ShopService()
 		{
 			DatabaseDriver = new DatabaseDriver();
-			logger = new Logger();
-			Supplier1 = new Supplier1();
-			Supplier2 = new Supplier2();
-			Supplier3 = new Supplier3();
+			logger = new ConsoleLogger();
+			_suppliers = new List<ISupplier>();
+			_suppliers.Add(new Supplier1());
+			_suppliers.Add(new Supplier2());
+			_suppliers.Add(new Supplier3());
 		}
-
+		#region Interface implementation
 		public void OrderAndSellArticle(int id, int maxExpectedPrice, int buyerId)
 		{
 			// ordering article
-			ISupplier[] suppliers = new ISupplier[]
-			{
-				Supplier1, Supplier2, Supplier3
-			};
-			Article article = FindArticle(id, maxExpectedPrice, suppliers);
+			Article article = FindArticle(id, maxExpectedPrice, _suppliers.ToArray());
 
 			if (article == null)
 			{
@@ -39,8 +37,14 @@ namespace TheShop
 
 			//selling article
 			SellArticle(article,buyerId);
-
 		}
+
+		public Article GetById(int id)
+		{
+			return DatabaseDriver.GetById(id);
+		}
+		#endregion
+		#region private methods
 		/// <summary>
 		/// Checks if any of the suppliers has Article in specified price range in stock
 		/// </summary>
@@ -107,9 +111,6 @@ namespace TheShop
 			{
 			}
 		}
-		public Article GetById(int id)
-		{
-			return DatabaseDriver.GetById(id);
-		}
+		#endregion
 	}
 }
