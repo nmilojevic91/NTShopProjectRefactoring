@@ -1,6 +1,7 @@
 ﻿using System;
+using TheShop;
 
-namespace TheShop
+namespace TheShopClient
 {
 	internal class Program
 	{

@@ -52,9 +52,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TheShop\TheShop.csproj">
-      <Project>{72c6a701-a607-4030-8a52-d004440c2aa1}</Project>
-      <Name>TheShop</Name>
+    <ProjectReference Include="..\TheShopService\TheShopService.csproj">
+      <Project>{263c5a23-22a0-4d48-9d41-9703dceb22f7}</Project>
+      <Name>TheShopService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

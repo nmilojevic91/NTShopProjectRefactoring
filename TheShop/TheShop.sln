@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 15 for Windows Desktop
 VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheShop", "TheShop\TheShop.csproj", "{72C6A701-A607-4030-8A52-D004440C2AA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheShopClient", "TheShop\TheShopClient.csproj", "{72C6A701-A607-4030-8A52-D004440C2AA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheShopUnitTests", "TheShopUnitTests\TheShopUnitTests.csproj", "{8C3BCCE0-2F96-41BE-BBAB-847C986FFE4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheShopService", "TheShopService\TheShopService.csproj", "{263C5A23-22A0-4D48-9D41-9703DCEB22F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8C3BCCE0-2F96-41BE-BBAB-847C986FFE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C3BCCE0-2F96-41BE-BBAB-847C986FFE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C3BCCE0-2F96-41BE-BBAB-847C986FFE4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{263C5A23-22A0-4D48-9D41-9703DCEB22F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{263C5A23-22A0-4D48-9D41-9703DCEB22F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{263C5A23-22A0-4D48-9D41-9703DCEB22F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{263C5A23-22A0-4D48-9D41-9703DCEB22F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

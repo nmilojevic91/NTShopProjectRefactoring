@@ -42,24 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuisnessLogic\Interfaces\IShopService.cs" />
-    <Compile Include="DataAccess\DatabaseDriver.cs" />
-    <Compile Include="DataAccess\Interfaces\ISupplier.cs" />
-    <Compile Include="DataAccess\Supplier1.cs" />
-    <Compile Include="DataAccess\Supplier2.cs" />
-    <Compile Include="DataAccess\Supplier3.cs" />
-    <Compile Include="Model\Article.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BuisnessLogic\ShopService.cs" />
-    <Compile Include="Utilities\Interfaces\ILogger.cs" />
-    <Compile Include="Utilities\ConsoleLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TheShopService\TheShopService.csproj">
+      <Project>{263c5a23-22a0-4d48-9d41-9703dceb22f7}</Project>
+      <Name>TheShopService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
